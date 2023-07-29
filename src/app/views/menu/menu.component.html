@@ -1,0 +1,37 @@
+<p>
+    <mat-toolbar style="height: 5rem;">
+
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>menu</mat-icon>
+        </button>
+          
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item [matMenuTriggerFor]="matricula">Matricula</button>
+            <button mat-menu-item [matMenuTriggerFor]="aluno">Aluno</button>
+            <button mat-menu-item>Nova Avaliação Fisica</button>
+          </mat-menu>
+
+          <mat-menu #matricula="matMenu">
+            <button mat-menu-item>Adicionar Matricula</button>
+            <button mat-menu-item>Pesquisar Matricula</button>
+            <button mat-menu-item>Fechar Matricula</button>
+          </mat-menu>           
+
+          <mat-menu #aluno="matMenu">
+            <button mat-menu-item>Adicionar Aluno</button>
+            <button mat-menu-item>Editar Aluno</button>
+            <button mat-menu-item>Excluir Aluno</button>
+          </mat-menu> 
+
+        <span> Academia - API Consumer </span>
+
+        <span class="example-spacer"></span>
+        <button mat-icon-button aria-label="Example icon-button with heart icon">
+            <mat-icon>help_outline</mat-icon>
+        </button>
+    </mat-toolbar>
+
+ 
+
+</p>
+  
