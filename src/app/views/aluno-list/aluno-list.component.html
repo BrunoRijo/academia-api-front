@@ -1,0 +1,14 @@
+<section>
+
+    <ng-container *ngFor="let Aluno of alunosList" class="">
+        <div class="row aluno-list_card">
+            <span fxFlex= "70" fxLayoutAlign="start center">{{Aluno.nome}}</span>
+            <span fxFlex="30" fxLayoutAlign="end center">
+                <mat-icon matTooltip="Informações">person</mat-icon>
+                <mat-icon matTooltip="Editar">edit</mat-icon>
+                <mat-icon matTooltip="Excluir">delete</mat-icon>
+            </span>
+        </div>        
+    </ng-container>
+
+</section>

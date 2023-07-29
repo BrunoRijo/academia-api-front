@@ -1,0 +1,15 @@
+.aluno-list_card {    
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 15px;
+    border-radius: 4px;
+    height: auto;
+    background-color: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;  
+}
+
+.align_right {
+    flex: 1 1 auto;
+  }

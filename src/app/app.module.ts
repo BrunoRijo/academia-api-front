@@ -14,6 +14,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { AlunoListComponent } from './views/aluno-list/aluno-list.component';
+import { NewAlunoComponent } from './views/aluno/new-aluno/new-aluno.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,8 +23,10 @@ import { AlunoListComponent } from './views/aluno-list/aluno-list.component';
     HomeComponent,
     MenuComponent,
     AlunoListComponent,
+    NewAlunoComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
