@@ -1,1 +1,16 @@
-<p>new-aluno works!</p>
+<h2 class="">
+    Cadastrar novo aluno
+</h2>
+<section class="contact__container">
+    <form class="contact-form"  [formGroup]="newAlunoForm" (submit)="onSubmit()">
+
+        <input placeholder="Digite o nome" formControlName="nome"/>
+        <input placeholder="Digite o CPF" formControlName="cpf"/>
+        <input placeholder="Digite o Bairro" formControlName="bairro"/>
+        <input placeholder="Digite a Data de Nascimento" formControlName="dataDeNascimento"/>
+
+        <button mat-button [disabled]="newAlunoForm.invalid" type="submit()" >
+            Cadastrar
+        </button>
+    </form>
+</section>
