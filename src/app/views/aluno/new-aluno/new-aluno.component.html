@@ -1,16 +1,67 @@
-<h2 class="">
-    Cadastrar novo aluno
-</h2>
-<section class="contact__container">
-    <form class="contact-form"  [formGroup]="newAlunoForm" (submit)="onSubmit()">
-
-        <input placeholder="Digite o nome" formControlName="nome"/>
-        <input placeholder="Digite o CPF" formControlName="cpf"/>
-        <input placeholder="Digite o Bairro" formControlName="bairro"/>
-        <input placeholder="Digite a Data de Nascimento" formControlName="dataDeNascimento"/>
-
-        <button mat-button [disabled]="newAlunoForm.invalid" type="submit()" >
-            Cadastrar
-        </button>
-    </form>
-</section>
+<div class="container">
+    <h2 class="">
+        Cadastrar novo aluno
+    </h2>
+    <section class="contact__container">
+        <form class="contact-form form"  [formGroup]="newAlunoForm" (submit)="onSubmit()">
+    
+            <p>
+                <mat-form-field class="full-width">
+                    <mat-label>NOME COMPLETO</mat-label>
+                    <input matInput type="text" formControlName="nome">
+                    <button *ngIf="newAlunoForm.get('nome')?.value !== ''" 
+                            matSuffix 
+                            mat-icon-button 
+                            aria-label="Clear" 
+                            (click)="clearNomeField()">
+                        <mat-icon>clear</mat-icon>
+                    </button>
+                </mat-form-field>
+            </p>
+    
+            <p>
+                <mat-form-field class="full-width">
+                    <mat-label>CPF: 000.000.000-00</mat-label>
+                    <input matInput type="text" formControlName="cpf">
+                    <button *ngIf="newAlunoForm.get('cpf')?.value !== ''" 
+                            matSuffix 
+                            mat-icon-button 
+                            aria-label="Clear" 
+                            (click)="clearCPFField()">
+                        <mat-icon>clear</mat-icon>
+                    </button>
+                </mat-form-field>
+            </p>     
+            
+            <p>
+                <mat-form-field class="full-width">
+                    <mat-label>BAIRRO</mat-label>
+                    <input matInput type="text" formControlName="bairro">
+                    <button *ngIf="newAlunoForm.get('cpf')?.value !== ''" 
+                            matSuffix 
+                            mat-icon-button 
+                            aria-label="Clear" 
+                            (click)="clearBairroField()">
+                        <mat-icon>clear</mat-icon>
+                    </button>
+                </mat-form-field>
+            </p> 
+            
+            <p>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput 
+                        [min]="getMinimumDate()" [max]="getMaximummDate()" 
+                        [matDatepicker]="picker"
+                        formControlName="dataDeNascimento">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+            </p>
+            <button mat-raised-button type="submit()" routerLink="">
+                Cadastrar
+            </button>
+        </form>
+    </section>
+</div>

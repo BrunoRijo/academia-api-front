@@ -24,7 +24,6 @@ export class AlunoService {
   }
 
   public addAluno(aluno: Aluno): Observable<Aluno> {
-    console.log(JSON.stringify(aluno));
     return this.httpClient.post<Aluno>(this.apiUrl, aluno, this.httpOptions);
   }
 

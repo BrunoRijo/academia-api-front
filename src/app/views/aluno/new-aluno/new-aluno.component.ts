@@ -1,6 +1,6 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Aluno } from 'src/app/shared/model/aluno.model';
 import { AlunoService } from 'src/app/shared/service/aluno.service';
 
@@ -13,14 +13,15 @@ import { AlunoService } from 'src/app/shared/service/aluno.service';
 export class NewAlunoComponent {
 
   newAlunoForm = this.fb.group({
-    nome:  "",
-    cpf : "",
-    bairro: "",
-    dataDeNascimento : ""
+    nome:  [' ', Validators.required],
+    cpf : [' ', Validators. required],
+    bairro: [' ', Validators. required],
+    dataDeNascimento : [' ', Validators. required]
   })  
   
   constructor(
     private fb: FormBuilder,
+    private router : Router,
     private alunoService: AlunoService
   ){ }
 
@@ -36,20 +37,41 @@ export class NewAlunoComponent {
       bairro: bairro ? bairro : "",
       dataDeNascimento: dataDeNascimento ? dataDeNascimento : ""
     };
-
+    
     this.adicionarAluno(aluno);
   }
 
   adicionarAluno(aluno: Aluno){
     this.alunoService.addAluno(aluno).subscribe(
         (response) => {
-          console.log('Resposta: ', response)
+          console.log('Resposta: ', response);
         },
         (error) => {
           console.error('Erro: ', error);          
         }
       );
     this.newAlunoForm.reset();
+    this.router.navigate
   }
+
+  clearNomeField(){
+    this.newAlunoForm.get('nome')?.setValue('');
+  }
+
+  clearCPFField(){
+    this.newAlunoForm.get('cpf')?.setValue('');
+  }  
+
+  clearBairroField(){
+    this.newAlunoForm.get('bairro')?.setValue('');
+  }   
+  
+  getMinimumDate(){
+    return new Date(new Date().getFullYear() - 100, 0, 1);
+  }
+
+  getMaximummDate(){
+    return new Date(new Date().getFullYear() + 80, 0, 1);
+  }  
 
 }
